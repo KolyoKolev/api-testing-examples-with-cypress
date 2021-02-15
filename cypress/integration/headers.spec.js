@@ -14,4 +14,8 @@ describe('Headers', () => {
       .should('include', 'application/json')
       .and('include', ' charset=utf-8');
   });
+
+  it('should assert the value of the server header', () => {
+    cy.getEndpointHeader('server').should('include', 'cloudflare');
+  });
 });
