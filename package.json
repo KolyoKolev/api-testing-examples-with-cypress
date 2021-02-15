@@ -1,0 +1,23 @@
+{
+  "name": "api-testing-examples-with-cypress",
+  "version": "1.0.0",
+  "description": "api-testing-with-cypress",
+  "main": "index.js",
+  "dependencies": {
+    "cypress": "^6.4.0"
+  },
+  "scripts": {
+    "cy:run": "cypress run",
+    "cy:open": "cypress open"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KolyoKolev/api-testing-examples-with-cypress.git"
+  },
+  "author": "Kolyo Kolev",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KolyoKolev/api-testing-examples-with-cypress/issues"
+  },
+  "homepage": "https://github.com/KolyoKolev/api-testing-examples-with-cypress#readme"
+}
