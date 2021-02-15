@@ -1,4 +1,4 @@
-import ENDPOINTS from '../constants/endPoints';
+import ENDPOINTS from '../constants/endpoints';
 
 Cypress.Commands.add('getEndpointHeader', (header) => {
   cy.get('@usersEndpoint').its('headers').its(header);
