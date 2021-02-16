@@ -12,4 +12,10 @@ describe('Users', () => {
   it('should assert the status code', () => {
     cy.requestUsersEndpoint().its('status').should('eq', 200);
   });
+
+  it('should assert the number of users', () => {
+    cy.getUsersResponseBodyData()
+      .should('be.an', 'array')
+      .and('have.length', 6);
+  });
 });
