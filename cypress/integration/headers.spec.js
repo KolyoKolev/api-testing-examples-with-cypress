@@ -18,4 +18,8 @@ describe('Headers', () => {
   it('should assert the value of the server header', () => {
     cy.getEndpointHeader('server').should('include', 'cloudflare');
   });
+
+  it('should assert the value of the cache-control header', () => {
+    cy.getEndpointHeader('cache-control').should('eq', 'max-age=14400');
+  });
 });
