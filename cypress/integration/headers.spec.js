@@ -6,7 +6,7 @@ Cypress.Commands.add('getEndpointHeader', (header) => {
 
 describe('Headers', () => {
   beforeEach('should request the endpoint under test', () => {
-    cy.request(ENDPOINTS.user).as('usersEndpoint');
+    cy.request(ENDPOINTS.users).as('usersEndpoint');
   });
 
   it('should assert the values of the page content type header', () => {
