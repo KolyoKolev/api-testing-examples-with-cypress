@@ -1,13 +1,5 @@
 import ENDPOINTS from '../constants/endpoints';
-
-const RANDOM_ID = Cypress._.random(0, 100);
-
-const NEW_USER = {
-  id: RANDOM_ID,
-  email: 'dummy_mail@dummy.dummy',
-  first_name: 'Dummy',
-  last_name: 'Name',
-};
+import { NEW_USER } from '../constants';
 
 Cypress.Commands.add('requestUsersEndpoint', () => {
   cy.request(ENDPOINTS.users);
