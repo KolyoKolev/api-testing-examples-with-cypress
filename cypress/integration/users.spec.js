@@ -63,5 +63,20 @@ describe('Users API', () => {
         );
       });
     });
+
+    it('should not be able to create user with missing password', () => {
+      cy.request({
+        method: 'POST',
+        url: ENDPOINTS.register,
+        body: REGISTER.USER_WITH_MISSING_PASSWORD,
+        failOnStatusCode: false,
+      }).then((res) => {
+        expect(res.status).to.eq(400);
+        expect(res.body).to.have.property(
+          'error',
+          ERROR_MESSAGES.MISSING_PASSWORD
+        );
+      });
+    });
   });
 });
