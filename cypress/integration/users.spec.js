@@ -1,5 +1,5 @@
 import ENDPOINTS from '../constants/endpoints';
-import { NEW_USER } from '../constants';
+import { NEW_USER, REGISTER } from '../constants';
 
 Cypress.Commands.add('requestUsersEndpoint', () => {
   cy.request(ENDPOINTS.users);
@@ -31,7 +31,21 @@ describe('Users API', () => {
         expect(res.body.email).to.eq(NEW_USER.email);
         expect(res.body.firstName).to.eq(NEW_USER.firstName);
         expect(res.body.lastName).to.eq(NEW_USER.lastName);
-        expect(res.body.notExistingKeyPair).to.eq(undefined);
+        expect(res.body.notExistingKeyPair).to.be.undefined;
+      });
+    });
+
+    it('should create a new user successfully', () => {
+      cy.request(
+        'POST',
+        ENDPOINTS.register,
+        REGISTER.USER_WITH_EMAIL_AND_PASSWORD
+      ).then((res) => {
+        expect(res.status).to.eq(200);
+        expect(res.body.id).to.eq(4);
+        expect(res.body.token).to.eq('QpwL5tke4Pnpja7X4');
+        expect(res.body.email).to.be.undefined;
+        expect(res.body.password).to.be.undefined;
       });
     });
   });
