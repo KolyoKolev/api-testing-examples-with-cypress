@@ -29,9 +29,9 @@ describe('Users API', () => {
         expect(Object.keys(res.body)).to.have.length(5);
         expect(res.body.id).to.eq(NEW_USER.id);
         expect(res.body.email).to.eq(NEW_USER.email);
-        expect(res.body.first_name).to.eq(NEW_USER.first_name);
-        expect(res.body.last_name).to.eq(NEW_USER.last_name);
-        expect(res.body.not_existing_key_pair).to.eq(undefined);
+        expect(res.body.firstName).to.eq(NEW_USER.firstName);
+        expect(res.body.lastName).to.eq(NEW_USER.lastName);
+        expect(res.body.notExistingKeyPair).to.eq(undefined);
       });
     });
   });
