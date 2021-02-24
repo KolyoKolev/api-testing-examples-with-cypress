@@ -4,10 +4,19 @@ const email = 'dummy_mail@dummy.dummy';
 const password = 'dummy_password';
 const firstName = 'Dummy';
 const lastName = 'Name';
+// required for passing the registration POST request
+const DEFINED_USER_EMAIL = 'eve.holt@reqres.in';
 
 export const NEW_USER = {
   id,
   email,
   firstName,
   lastName,
+};
+
+export const REGISTER = {
+  USER_WITH_EMAIL_AND_PASSWORD: {
+    email: DEFINED_USER_EMAIL,
+    password,
+  },
 };
