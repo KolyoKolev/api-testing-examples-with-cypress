@@ -19,4 +19,12 @@ export const REGISTER = {
     email: DEFINED_USER_EMAIL,
     password,
   },
+
+  USER_WITH_MISSING_EMAIL: {
+    password,
+  },
+
+  USER_WITH_MISSING_PASSWORD: {
+    email: DEFINED_USER_EMAIL,
+  },
 };
