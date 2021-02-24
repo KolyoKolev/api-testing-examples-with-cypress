@@ -31,4 +31,5 @@ export const REGISTER = {
 
 export const ERROR_MESSAGES = {
   MISSING_EMAIL_OR_USERNAME: 'Missing email or username',
+  MISSING_PASSWORD: 'Missing password',
 };
