@@ -1,5 +1,5 @@
 import ENDPOINTS from '../constants/endpoints';
-import { NEW_USER, REGISTER } from '../constants';
+import { NEW_USER, REGISTER, ERROR_MESSAGES } from '../constants';
 
 Cypress.Commands.add('requestUsersEndpoint', () => {
   cy.request(ENDPOINTS.users);
@@ -46,6 +46,21 @@ describe('Users API', () => {
         expect(res.body.token).to.eq('QpwL5tke4Pnpja7X4');
         expect(res.body.email).to.be.undefined;
         expect(res.body.password).to.be.undefined;
+      });
+    });
+
+    it('should not be able to create user with missing email', () => {
+      cy.request({
+        method: 'POST',
+        url: ENDPOINTS.register,
+        body: REGISTER.USER_WITH_MISSING_EMAIL,
+        failOnStatusCode: false,
+      }).then((res) => {
+        expect(res.status).to.eq(400);
+        expect(res.body).to.have.property(
+          'error',
+          ERROR_MESSAGES.MISSING_EMAIL_OR_USERNAME
+        );
       });
     });
   });
