@@ -28,3 +28,7 @@ export const REGISTER = {
     email: DEFINED_USER_EMAIL,
   },
 };
+
+export const ERROR_MESSAGES = {
+  MISSING_EMAIL_OR_USERNAME: 'Missing email or username',
+};
