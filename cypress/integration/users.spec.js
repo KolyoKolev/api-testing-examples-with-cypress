@@ -1,5 +1,10 @@
 import ENDPOINTS from '../constants/endpoints';
-import { NEW_USER, REGISTER, ERROR_MESSAGES } from '../constants';
+import {
+  NEW_USER,
+  REGISTER,
+  ERROR_MESSAGES,
+  EXISTING_USER,
+} from '../constants';
 
 describe('Users API', () => {
   context('GET requests', () => {
@@ -13,6 +18,17 @@ describe('Users API', () => {
         .its('data')
         .should('be.an', 'array')
         .and('have.length', 6);
+    });
+
+    it('should get a single user', () => {
+      cy.request(`${ENDPOINTS.users}?id=1`).then((res) => {
+        expect(res.status).to.eq(200);
+        expect(res.body.data.id).to.eq(EXISTING_USER.id);
+        expect(res.body.data.email).to.eq(EXISTING_USER.email);
+        expect(res.body.data.first_name).to.eq(EXISTING_USER.first_name);
+        expect(res.body.data.last_name).to.eq(EXISTING_USER.last_name);
+        expect(res.body.data.notExistingKeyPair).to.be.undefined;
+      });
     });
   });
 
