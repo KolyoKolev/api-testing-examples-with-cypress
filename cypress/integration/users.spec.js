@@ -1,22 +1,16 @@
 import ENDPOINTS from '../constants/endpoints';
 import { NEW_USER, REGISTER, ERROR_MESSAGES } from '../constants';
 
-Cypress.Commands.add('requestUsersEndpoint', () => {
-  cy.request(ENDPOINTS.users);
-});
-
-Cypress.Commands.add('getUsersResponseBodyData', () => {
-  cy.requestUsersEndpoint().its('body').its('data');
-});
-
 describe('Users API', () => {
   context('GET requests', () => {
     it('should assert the status code', () => {
-      cy.requestUsersEndpoint().its('status').should('eq', 200);
+      cy.request(ENDPOINTS.users).its('status').should('eq', 200);
     });
 
     it('should assert the number of users', () => {
-      cy.getUsersResponseBodyData()
+      cy.request(ENDPOINTS.users)
+        .its('body')
+        .its('data')
         .should('be.an', 'array')
         .and('have.length', 6);
     });
