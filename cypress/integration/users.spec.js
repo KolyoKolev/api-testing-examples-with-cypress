@@ -73,4 +73,15 @@ describe('Users API', () => {
       });
     });
   });
+
+  context('OPTIONS request', () => {
+    it('should check the allowed requests', () => {
+      cy.request('OPTIONS', ENDPOINTS.users).then((res) => {
+        expect(res.status).to.eq(204);
+        cy.wrap(res.headers)
+          .its('access-control-allow-methods')
+          .should('eq', 'GET,HEAD,PUT,PATCH,POST,DELETE');
+      });
+    });
+  });
 });
