@@ -74,6 +74,21 @@ describe('Users API', () => {
     });
   });
 
+  context('PUT requests', () => {
+    it('should replace the whole content with empty object', () => {
+      cy.request('PUT', ENDPOINTS.users, {}).then((res) => {
+        expect(res.body).to.not.have.keys([
+          'page',
+          'per_page',
+          'total',
+          'total_pages',
+          'data',
+          'support',
+        ]);
+      });
+    });
+  });
+
   context('OPTIONS request', () => {
     it('should check the allowed requests', () => {
       cy.request('OPTIONS', ENDPOINTS.users).then((res) => {
