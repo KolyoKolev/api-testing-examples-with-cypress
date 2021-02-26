@@ -7,6 +7,14 @@ const lastName = 'Name';
 // required for passing the registration POST request
 const DEFINED_USER_EMAIL = 'eve.holt@reqres.in';
 
+export const EXISTING_USER = {
+  id: 1,
+  email: 'george.bluth@reqres.in',
+  first_name: 'George',
+  last_name: 'Bluth',
+  avatar: 'https://reqres.in/img/faces/1-image.jpg',
+};
+
 export const NEW_USER = {
   id,
   email,
