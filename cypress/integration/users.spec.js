@@ -87,6 +87,19 @@ describe('Users API', () => {
         ]);
       });
     });
+
+    it('should replace the whole content with new user', () => {
+      cy.request('PUT', ENDPOINTS.users, NEW_USER).then((res) => {
+        expect(res.status).to.eq(200);
+        expect(Object.keys(res.body)).to.have.length(5);
+        expect(res.body.id).to.eq(NEW_USER.id);
+        expect(res.body.email).to.eq(NEW_USER.email);
+        expect(res.body.firstName).to.eq(NEW_USER.firstName);
+        expect(res.body.lastName).to.eq(NEW_USER.lastName);
+        expect(res.body.data).to.not.exist;
+        expect(res.body.notExistingKeyPair).to.be.undefined;
+      });
+    });
   });
 
   context('OPTIONS request', () => {
