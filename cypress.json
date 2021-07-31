@@ -1,1 +1,1 @@
-{ "baseUrl": "https://reqres.in/api" }
+{ "baseUrl": "https://reqres.in/api", "video": false }
