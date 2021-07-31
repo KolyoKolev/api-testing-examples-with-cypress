@@ -3,9 +3,6 @@
   "version": "1.0.0",
   "description": "api-testing-with-cypress",
   "main": "index.js",
-  "dependencies": {
-    "cypress": "^6.4.0"
-  },
   "scripts": {
     "cy:run": "cypress run",
     "cy:open": "cypress open"
@@ -19,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/KolyoKolev/api-testing-examples-with-cypress/issues"
   },
-  "homepage": "https://github.com/KolyoKolev/api-testing-examples-with-cypress#readme"
+  "homepage": "https://github.com/KolyoKolev/api-testing-examples-with-cypress#readme",
+  "devDependencies": {
+    "cypress": "^8.1.0"
+  }
 }
