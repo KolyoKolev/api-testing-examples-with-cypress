@@ -4,8 +4,8 @@
   "description": "api-testing-with-cypress",
   "main": "index.js",
   "scripts": {
-    "cy:run": "cypress run",
-    "cy:open": "cypress open"
+    "cyr": "cypress run",
+    "cyo": "cypress open"
   },
   "repository": {
     "type": "git",
